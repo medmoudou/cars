@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+{# {{ form_widget(form) }} #}
+{{ form_row(form.name, { label_attr: { class: 'form-label' }, attr: { class: 'form-control' } }) }}
+{{ form_row(form.cost, { label_attr: { class: 'form-label' }, attr: { class: 'form-control' } }) }}
+{{ form_row(form.nbSeats, { label_attr: { class: 'form-label' }, attr: { class: 'form-control' } }) }}
+{{ form_row(form.nbDoors, { label_attr: { class: 'form-label' }, attr: { class: 'form-control' } }) }}
+{{ form_row(form.category, { label_attr: { class: 'form-label' }, attr: { class: 'form-control' } }) }}
+<button class="btn btn-info text-white mt-3 w-100">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

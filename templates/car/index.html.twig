@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Car index
+{% endblock %}
+
+{% block body %}
+  <div class="container p-5">
+    <h3 class="text-center my-5">Admin panel</h3>
+
+    <a href="{{ path('app_car_new') }}" class="btn btn-info text-white mb-3">Create new</a>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>NbSeats</th>
+          <th>NbDoors</th>
+          <th>Name</th>
+          <th>Cost</th>
+          <th>Category</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for car in cars %}
+          <tr>
+            <td>{{ car.id }}</td>
+            <td>{{ car.nbSeats }}</td>
+            <td>{{ car.nbDoors }}</td>
+            <td>{{ car.name }}</td>
+            <td>{{ car.cost }}</td>
+            <td>{{ car.category.name }}</td>
+            <td>
+              <a href="{{ path('app_car_show', { id: car.id }) }}" class="btn btn-sm btn-primary">show</a>
+              <a href="{{ path('app_car_edit', { id: car.id }) }}" class="btn btn-sm btn-success">edit</a>
+            </td>
+          </tr>
+        {% else %}
+          <tr>
+            <td colspan="6">no records found</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
